@@ -20,9 +20,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/materia.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <style>
+      [v-cloak] {
+        display:none;
+      }
+    </style
 </head>
 <body>
-    <div id="app">
+    <div id="app"  v-cloak>
         @yield('nav')
         <main class="py-4">
             @yield('content')

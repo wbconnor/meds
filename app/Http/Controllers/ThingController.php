@@ -76,7 +76,9 @@ class ThingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $thing = Thing::findOrFail($id);
+        $thing->update(['message' => $request->message]);
+        return $thing;
     }
 
     /**

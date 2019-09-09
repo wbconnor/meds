@@ -20,9 +20,11 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('thing-cards', require('./components/ThingCards.vue').default);
-Vue.component('navbar', require('./components/Navbar.vue').default);
-Vue.component('barebar', require('./components/Barebar.vue').default);
+Vue.component('thing-cards', require('./components/ThingCards.vue'));
+Vue.component('thing-edit-modal', require('./components/ThingEditModal.vue'));
+Vue.component('thing-edit-modal2', require('./components/ThingEditModal2.vue'));
+Vue.component('navbar', require('./components/Navbar.vue'));
+Vue.component('barebar', require('./components/Barebar.vue'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

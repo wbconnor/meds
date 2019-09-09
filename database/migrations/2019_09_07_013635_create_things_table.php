@@ -15,7 +15,7 @@ class CreateThingsTable extends Migration
     {
         Schema::create('things', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('message');
+            $table->longText('message');
 
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');

@@ -18,18 +18,22 @@
                             {{ __('Post a new Thing') }}
                         </div>
                         <div class="card-body">
-                            <form method="POST" action="/thing/new">
-                                @csrf
-                                <div class="row justify-content-center my-2">
-                                    <textarea name="message" class="form-control col-10" rows="5" cols="50"></textarea>
-                                    <input type="hidden" name="user_id" value="{{ $user->id }}"></input>
-                                </div>
-                                <div class="row justify-content-center mt-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Post the Thing') }}
-                                    </button>
-                                </div>
-                            </form>
+                          <!--
+                            TODO: this should be refactored using one style
+                            or the other
+                          -->
+                          {{ Form::open(array('url' => 'thing/new')) }}
+
+                          <div class="row justify-content-center my-2">
+                              <textarea name="message" class="form-control col-10" rows="5" cols="50"></textarea>
+                              <input type="hidden" name="user_id" value="{{ $user->id }}"></input>
+                          </div>
+                          <div class="row justify-content-center mt-4">
+                              <button type="submit" class="btn btn-primary">
+                                  {{ __('Post the Thing') }}
+                              </button>
+                          </div>
+                          {{ Form::close() }}
                         </div>
                     </div> <!-- card -->
                 </div>  <!-- col -->

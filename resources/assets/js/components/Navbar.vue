@@ -1,3 +1,8 @@
+<style>
+  .slide {
+    margin-right: 10px;
+  }
+</style>
 <template>
     <nav class="navbar navbar-light bg-light">
         <a href="/" class="navbar-brand">Meds</a>
