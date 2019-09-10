@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Thing;
+use App\Project;
 use Auth;
 //use Illuminate\Http\Request;
 
-class ThingController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,10 @@ class ThingController extends Controller
      */
     public function index()
     {
-        //$things = Thing::all();
-        $things = Thing::paginate(20);
+        //$projects = Project::all();
+        $projects = Project::all();
 
-        return response()->json($things);
+        return response()->json($projects);
     }
 
     /**
@@ -29,7 +29,7 @@ class ThingController extends Controller
      */
     public function create()
     {
-        return view('thing_create', ['user' => Auth::user() ? Auth::user() : false]);
+        return view('project_create', ['user' => Auth::user() ? Auth::user() : false]);
     }
 
     /**
@@ -40,7 +40,7 @@ class ThingController extends Controller
      */
     public function store(Request $request)
     {
-        $thing = Thing::create($request->all());
+        $project = Project::create($request->all());
 
         return view('main', ['user' => Auth::user() ? Auth::user() : false]);
     }
@@ -76,9 +76,9 @@ class ThingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $thing = Thing::findOrFail($id);
-        $thing->update(['message' => $request->message]);
-        return $thing;
+        $project = Project::findOrFail($id);
+        //$project->update(['message' => $request->message]);
+        return $project;
     }
 
     /**

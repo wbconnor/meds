@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-Route::get('thing/new', '\App\Http\Controllers\ThingController@create');
-Route::post('thing/new', '\App\Http\Controllers\ThingController@store');
+Route::get('task/new', '\App\Http\Controllers\TaskController@create');
+Route::post('task/new', '\App\Http\Controllers\TaskController@store');
 
 Auth::routes();

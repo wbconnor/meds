@@ -13,14 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::group(['prefix' => 'tasks'], function () {
+    Route::get('/', 'TaskController@index');
+    Route::post('/', 'TaskController@store');
+    Route::get('/{id}', 'TaskController@show');
+    Route::put('/{id}', 'TaskController@update');
+    Route::delete('/{id}', 'TaskController@destroy');
 });
 
-Route::group(['prefix' => 'things'], function () {
-    Route::get('/', 'ThingController@index');
-    Route::post('/', 'ThingController@store');
-    Route::get('/{id}', 'ThingController@show');
-    Route::put('/{id}', 'ThingController@update');
-    Route::delete('/{id}', 'ThingController@destroy');
+Route::group(['prefix' => 'taskUser'], function () {
+    Route::get('/', 'TaskUserController@index');
+    Route::post('/', 'TaskUserController@store');
+    Route::get('/{id}', 'TaskUserController@show');
+    Route::put('/{id}', 'TaskUserController@update');
+    Route::delete('/{id}', 'TaskUserController@destroy');
 });
